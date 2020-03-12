@@ -26,3 +26,17 @@ steps:
   depends_on:
     - build114
 
+---
+kind: pipeline
+type: docker
+name: test113
+
+steps:
+- name: build113
+  image: golang:1.13
+  commands:
+  - go build
+  when:
+    branch:
+    - master
+ 
