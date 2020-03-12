@@ -6,5 +6,31 @@ name: default
 steps:
 - name: greeting
   image: golang:1.12
+  environment:
+    testmode: 1
   commands:
   - go build
+  
+- name: build114
+  image: golang:1.14
+  commands:
+  - go build
+  when:
+    status:
+    - success
+
+- name: build113
+  image: golang:1.13
+  commands:
+  - go build
+  when:
+    branch:
+    - master
+ 
+- name: build111
+  image: golang:1.11
+  commands:
+  - go build
+  depends_on:
+    - build114
+    - build113
