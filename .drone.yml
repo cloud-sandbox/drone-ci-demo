@@ -19,8 +19,8 @@ steps:
     status:
     - success
 
-- name: build111
-  image: golang:1.11
+- name: build110
+  image: golang:1.10
   commands:
   - go build
   depends_on:
@@ -36,7 +36,3 @@ steps:
   image: golang:1.13
   commands:
   - go build
-  when:
-    branch:
-    - master
- 
