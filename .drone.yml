@@ -25,7 +25,6 @@ steps:
   - go build
   depends_on:
     - build114
-    - build113
 
 ---
 kind: pipeline
