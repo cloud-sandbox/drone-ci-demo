@@ -19,6 +19,19 @@ steps:
     status:
     - success
 
+- name: build111
+  image: golang:1.11
+  commands:
+  - go build
+  depends_on:
+    - build114
+    - build113
+
+---
+kind: pipeline
+type: docker
+name: test113
+
 - name: build113
   image: golang:1.13
   commands:
@@ -27,10 +40,3 @@ steps:
     branch:
     - master
  
-- name: build111
-  image: golang:1.11
-  commands:
-  - go build
-  depends_on:
-    - build114
-    - build113
